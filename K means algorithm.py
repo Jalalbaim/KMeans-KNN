@@ -4,8 +4,10 @@ import numpy as np
 
 # distance euclidienne
 
-def euclidean_distance (x1,x2):
-  return np.sqrt(np.sum((x1 - x2)**2))
+def euclidean_distance(x1, x2):
+    ndg1 = x1[0]  
+    ndg2 = x2[0]  
+    return np.abs(ndg1 - ndg2)
 
 # Algorithm
 max_iterations = 100
@@ -14,7 +16,7 @@ def kmeans (data, k):
     # initialisation aléatoire des centroids
     centroids = data[:, np.random.choice(range(data.shape[1]), k, replace=False)].T
 
-    for i in range(100):
+    for i in range(1000):
       # association de chaque point à un cluster
         clusters = [[] for _ in range(k)]
         for point in data.T:
